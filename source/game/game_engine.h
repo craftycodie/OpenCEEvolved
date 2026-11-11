@@ -289,7 +289,12 @@ struct game_variant_options
 	of their own team (game_engine_get_starting_location_rating). Taken from
 	reserved, which older builds zero and ignore: the host alone picks spawns */
 	boolean force_team_spawns;
-	byte reserved[5];
+	/* port: OPENCE OPTIONS' ARMOR LOCK: the players armour lock, held to
+	stand locked in place and take no damage (port/linux/game/abilities.c;
+	every player sprints, whatever the gametype). Taken from reserved, which
+	older builds zero and ignore */
+	boolean armor_lock;
+	byte reserved[4];
 };
 
 typedef char verify_game_variant_options_size[sizeof(struct game_variant_options) == 0x2C ? 1 : -1];
